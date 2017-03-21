@@ -1,5 +1,5 @@
 
-Aihe: Tetris peli
+Aihe: Tetris peli (Petris)
 
 Käyttäjät: Pelaaja (1 pelaaja)
 
@@ -8,5 +8,5 @@ Pelaajan toiminnot:
     (Mahdollisesti myös nickname ja highscore)
 
 Pelin kuvaus:
-    Classinen tetris, mutta pienellä twistillä, esim uusia (erimuotoisia) palikoita, hieman funkympi lookki.
+    Klassinen tetris uudelleen kehiteltynä Petrikseksi, joka perustuu perinteisen tetriksen 4-osaisten tetronomien     sijaan 5-osaisiin pentominoihin.
 
