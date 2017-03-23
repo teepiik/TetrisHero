@@ -5,21 +5,24 @@
  */
 package petris.pack;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import petris.pack.Pentomino;
 import static petris.pack.Pentomino.Muodoton;
+import static petris.pack.Pentomino.Nmino;
 import static petris.pack.Pentomino.Pmino;
+import static petris.pack.Pentomino.Tmino;
+import static petris.pack.Pentomino.Zmino;
 
 /**
  *
  * @author teepiik
  *
  */
+
+// PS. nämä testit ovat aika turhia, mutta deadlineen mennessä en ehtinyt luoda sellaista
+// sisältöä, minkä testaaminen on oikeasti järkevää. Kirjoitan luonnollisesti järkevämpiä
+// testejä sitä mukaan, kun mielekkäästi testattavaa koodia ilmestyy.
+
 public class PentominoTest {
 
     Pentomino pentomino;
@@ -131,13 +134,79 @@ public class PentominoTest {
     }
 
     @Test
-    public void onkoMuodoton2() {
+    public void onkoMuodotonFalse() {
         Pentomino p = Muodoton;
         Pentomino p2 = Pmino;
         setPentomino(p);
         Boolean tulos = onkoSamaPentomino(p2);
         assertEquals(tulos, false);
     }
+    @Test
+    public void onkoPmino() {
+        Pentomino p = Pmino;
+        setPentomino(p);
+        Boolean tulos = onkoSamaPentomino(p);
+        assertEquals(tulos, true);
+    }
+
+    @Test
+    public void onkoPminoFalse() {
+        Pentomino p = Muodoton;
+        Pentomino p2 = Pmino;
+        setPentomino(p2);
+        Boolean tulos = onkoSamaPentomino(p);
+        assertEquals(tulos, false);
+    }
+    @Test
+    public void onkoZmino() {
+        Pentomino p = Zmino;
+        setPentomino(p);
+        Boolean tulos = onkoSamaPentomino(p);
+        assertEquals(tulos, true);
+    }
+
+    @Test
+    public void onkoZminoFalse() {
+        Pentomino p = Muodoton;
+        Pentomino p2 = Zmino;
+        setPentomino(p);
+        Boolean tulos = onkoSamaPentomino(p2);
+        assertEquals(tulos, false);
+    }
+    @Test
+    public void onkoNmino() {
+        Pentomino p = Nmino;
+        setPentomino(p);
+        Boolean tulos = onkoSamaPentomino(p);
+        assertEquals(tulos, true);
+    }
+
+    @Test
+    public void onkoNminoFalse() {
+        Pentomino p = Muodoton;
+        Pentomino p2 = Pmino;
+        setPentomino(p2);
+        Boolean tulos = onkoSamaPentomino(p);
+        assertEquals(tulos, false);
+    }
+    @Test
+    public void onkoTmino() {
+        Pentomino p = Tmino;
+        setPentomino(p);
+        Boolean tulos = onkoSamaPentomino(p);
+        assertEquals(tulos, true);
+    }
+
+    @Test
+    public void onkoTminoFalse() {
+        Pentomino p = Tmino;
+        Pentomino p2 = Pmino;
+        setPentomino(p);
+        Boolean tulos = onkoSamaPentomino(p2);
+        assertEquals(tulos, false);
+    }
+    
+
 
     
 
