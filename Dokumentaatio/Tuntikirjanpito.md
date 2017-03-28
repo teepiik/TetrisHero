@@ -6,4 +6,5 @@ Päivä | Tunnit | Kuvaus
 21.03.2017 | 5h | Aiheen kehittely, enum class ja pentomien suunnittelu, mavenin ja pitin korjausyritystä ja opiskelua.
 22.03.2017 | 1h | Pajassa ratkomassa muutamaa virhettä sekä checkstylen käyttöön otto.
 23.03.2017 | 3h | Testien lisäilyä, luokkakaavio, raporttien liittely palautusvaatimusten mukaisesti.
+28.03.2017 | 3h | Uusia luokkia, mallipelien opiskelua internetistä, koodia luokkiin.
 ... | ... | ...
