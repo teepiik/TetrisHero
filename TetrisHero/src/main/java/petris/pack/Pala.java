@@ -84,11 +84,11 @@ public class Pala {
 
         return uusi;
     }
-    public void setRandom() {
+    public void setRandom(Pala p) {
     Random r = new Random();
     int x = Math.abs(r.nextInt()) % 12 + 1;
     Pentomino[] values = Pentomino.values();
-    setPala(values[x]);
+    p.setPala(values[x]);
   }
     
     public int minX() {
@@ -110,5 +110,6 @@ public class Pala {
  
     return m;
   }
+  
 
 }

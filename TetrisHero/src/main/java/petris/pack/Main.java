@@ -13,5 +13,9 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("hello");
+        Petris petris = new Petris();
+        petris.setLocationRelativeTo(null);
+        petris.setVisible(true);
+        petris.setResizable(false);
     }
 }

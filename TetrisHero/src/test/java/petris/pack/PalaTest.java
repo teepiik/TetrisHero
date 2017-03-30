@@ -17,29 +17,41 @@ import static org.junit.Assert.*;
  * @author teemu
  */
 public class PalaTest {
-    
+
     public PalaTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+
+    @Test
+    public void tyhjaPalaTest() {
+        Pala pala = new Pala();
+        int y = 0;
+        int x = 0;
+        assertEquals(x, pala.getX(x));
+        assertEquals(y, pala.getY(x));
+        assertEquals(Pentomino.Muodoton, pala.getMuoto());
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void muodonAsetusTest() {
+        Pala pala = new Pala();
+        pala.setPala(Pentomino.Nmino);
+        assertEquals(Pentomino.Nmino, pala.getMuoto());
+    }
+    
+    @Test
+    public void setRandomTest() {
+        Pala pala = new Pala();
+        pala.setRandom(pala);
+        boolean eiMuodoton = false;
+        boolean eiTyhja = false;
+        if (pala.getMuoto() != Pentomino.Muodoton) {
+            eiMuodoton = true;
+        }
+        if (pala.getMuoto()!=null) {
+            eiTyhja = true;
+        }
+        assertEquals(eiMuodoton, true);
+        assertEquals(eiTyhja, true);
+    }
+
 }

@@ -19,9 +19,7 @@ import static petris.pack.Pentomino.Zmino;
  *
  */
 
-// PS. nämä testit ovat aika turhia, mutta deadlineen mennessä en ehtinyt luoda sellaista
-// sisältöä, minkä testaaminen on oikeasti järkevää. Kirjoitan luonnollisesti järkevämpiä
-// testejä sitä mukaan, kun mielekkäästi testattavaa koodia ilmestyy.
+// 
 
 public class PentominoTest {
 
