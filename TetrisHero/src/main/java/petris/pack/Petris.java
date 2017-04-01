@@ -12,10 +12,10 @@ import javax.swing.JLabel;
  *
  * @author teepiik
  */
-public class Petris extends JFrame{
-    
+public class Petris extends JFrame {
+
     private JLabel ylaReuna;
-    
+
     public JLabel getYlaReuna() {
         return ylaReuna;
     }

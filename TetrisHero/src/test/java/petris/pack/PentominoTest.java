@@ -18,9 +18,7 @@ import static petris.pack.Pentomino.Zmino;
  * @author teepiik
  *
  */
-
 // 
-
 public class PentominoTest {
 
     Pentomino pentomino;
@@ -139,6 +137,7 @@ public class PentominoTest {
         Boolean tulos = onkoSamaPentomino(p2);
         assertEquals(tulos, false);
     }
+
     @Test
     public void onkoPmino() {
         Pentomino p = Pmino;
@@ -155,6 +154,7 @@ public class PentominoTest {
         Boolean tulos = onkoSamaPentomino(p);
         assertEquals(tulos, false);
     }
+
     @Test
     public void onkoZmino() {
         Pentomino p = Zmino;
@@ -171,6 +171,7 @@ public class PentominoTest {
         Boolean tulos = onkoSamaPentomino(p2);
         assertEquals(tulos, false);
     }
+
     @Test
     public void onkoNmino() {
         Pentomino p = Nmino;
@@ -187,6 +188,7 @@ public class PentominoTest {
         Boolean tulos = onkoSamaPentomino(p);
         assertEquals(tulos, false);
     }
+
     @Test
     public void onkoTmino() {
         Pentomino p = Tmino;
@@ -203,9 +205,5 @@ public class PentominoTest {
         Boolean tulos = onkoSamaPentomino(p2);
         assertEquals(tulos, false);
     }
-    
-
-
-    
 
 }

@@ -84,32 +84,38 @@ public class Pala {
 
         return uusi;
     }
+
     public void setRandom(Pala p) {
-    Random r = new Random();
-    int x = Math.abs(r.nextInt()) % 12 + 1;
-    Pentomino[] values = Pentomino.values();
-    p.setPala(values[x]);
-  }
-    
+        Random r = new Random();
+        int x = Math.abs(r.nextInt()) % 12 + 1;
+        Pentomino[] values = Pentomino.values();
+        p.setPala(values[x]);
+    }
+
     public int minX() {
-    int m = koordinaatit[0][0];
- 
-    for (int i = 0; i < 5; i++) {
-      m = Math.min(m, koordinaatit[i][0]);
+        int m = koordinaatit[0][0];
+
+        for (int i = 0; i < 5; i++) {
+            m = Math.min(m, koordinaatit[i][0]);
+        }
+
+        return m;
     }
- 
-    return m;
-  }
- 
-  public int minY() {
-    int m = koordinaatit[0][1];
- 
-    for (int i = 0; i < 4; i++) {
-      m = Math.min(m, koordinaatit[i][1]);
+
+    public int minY() {
+        int m = koordinaatit[0][1];
+
+        for (int i = 0; i < 4; i++) {
+            m = Math.min(m, koordinaatit[i][1]);
+        }
+
+        return m;
     }
- 
-    return m;
-  }
-  
+    // testiä varten
+
+    public String toString() {
+        String palautus = "Ei ole tyhja";
+        return palautus;
+    }
 
 }

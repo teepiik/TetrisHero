@@ -25,7 +25,7 @@ under the License.
     <language>en-us</language>
     <copyright>&#169;2017</copyright>
     <item>
-      <title>File: 2,
+      <title>File: 5,
              Errors: 0,
              Warnings: 0,
              Infos: 0
@@ -47,6 +47,48 @@ under the License.
                           <tr>
                 <td>
                   <a href="${project.url}/checkstyle.html#petris.pack.Main.java">petris/pack/Main.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#petris.pack.Lauta.java">petris/pack/Lauta.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#petris.pack.Pala.java">petris/pack/Pala.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="${project.url}/checkstyle.html#petris.pack.Petris.java">petris/pack/Petris.java</a>
                 </td>
                 <td>
                   0

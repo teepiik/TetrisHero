@@ -16,23 +16,24 @@ import static org.junit.Assert.*;
  *
  * @author teemu
  */
+// Ei vielä mitään testailtavaa
 public class PetrisTest {
-    
+
     public PetrisTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }

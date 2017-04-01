@@ -31,13 +31,13 @@ public class PalaTest {
         assertEquals(Pentomino.Muodoton, pala.getMuoto());
     }
 
-    @Test
+    @Test // testa samalla myös muodon getterin
     public void muodonAsetusTest() {
         Pala pala = new Pala();
         pala.setPala(Pentomino.Nmino);
         assertEquals(Pentomino.Nmino, pala.getMuoto());
     }
-    
+
     @Test
     public void setRandomTest() {
         Pala pala = new Pala();
@@ -47,7 +47,7 @@ public class PalaTest {
         if (pala.getMuoto() != Pentomino.Muodoton) {
             eiMuodoton = true;
         }
-        if (pala.getMuoto()!=null) {
+        if (pala.getMuoto() != null) {
             eiTyhja = true;
         }
         assertEquals(eiMuodoton, true);

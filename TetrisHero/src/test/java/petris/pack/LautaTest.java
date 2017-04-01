@@ -5,41 +5,46 @@
  */
 package petris.pack;
 
+import java.util.Objects;
 import org.junit.After;
 import org.junit.AfterClass;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
  * @author teemu
  */
 public class LautaTest {
-    
+
+    Petris petris = new Petris();
+
     public LautaTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void laudanTekoTekeePalanTest() {
+        Lauta lauta = new Lauta(petris);
+        Pala pala = lauta.palaPelissaNyt();
+        boolean onko = Objects.nonNull(pala);
+        assertEquals(onko, true);
+
+    }
+    /* EI TOIMI VIELÄ, KOODI KESKEN
+    @Test // asetetaan valmiiksi luokassa, nyt 15
+    public void laudanLeveysTest() {
+        Lauta lauta = new Lauta(petris);
+        int testi = 15;
+        assertEquals(testi,lauta.laudanLeveys());
+
+    }
+    @Test // asetetaan valmiiksi luokassa, nyt 30
+    public void laudanKorkeusTest() {
+        Lauta lauta = new Lauta(petris);
+        int testi = 30;
+        assertEquals(testi, lauta.laudanKorkeus());
+
+    }*/
 }
