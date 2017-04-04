@@ -15,8 +15,19 @@ import javax.swing.JLabel;
 public class Petris extends JFrame {
 
     private JLabel ylaReuna;
+    
+    public Petris() {
+        ylaReuna = new JLabel("0");
+        Lauta lauta = new Lauta(this);
+        add(lauta);
+        setSize(400, 600);
+        setTitle("Petris");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        lauta.uusiPala();
+    }
 
     public JLabel getYlaReuna() {
         return ylaReuna;
     }
+    
 }

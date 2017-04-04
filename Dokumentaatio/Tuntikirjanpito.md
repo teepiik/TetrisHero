@@ -9,4 +9,6 @@ Päivä | Tunnit | Kuvaus
 28.03.2017 | 3h | Uusia luokkia, mallipelien opiskelua internetistä, koodia luokkiin.
 30.03.2017 | 3h | Lisää ideoita peliin (mallipelien tutkiminen), luokkien testejä, yleistä Swingin opiskelua.
 01.04.2017 | 3h | Mallipelien opiskelua, lisää koodia luokkiin, lisää testejä, viikkopalautuksen teko, katselmukset.
+03.04.2017 | 1h | Grafiikan pystytystä.
+04.04.2017 | 4h | Testien miettimistä, eri mallipelien vertailua ja ideoiden yhdistelyä, lisää koodia.
 ... | ... | ...

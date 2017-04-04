@@ -61,7 +61,7 @@ public class Pala {
         Pala uusi = new Pala();
         uusi.palanMuoto = palanMuoto;
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             uusi.setX(i, getY(i));
             uusi.setY(i, -getX(i));
         }
@@ -70,6 +70,7 @@ public class Pala {
     }
 
     public Pala kaannaOikea() {
+        // Xminon muoto ulospäin ei muutu vaikka käännettäisiinkin.
         if (palanMuoto == Pentomino.Xmino) {
             return this;
         }
@@ -77,7 +78,7 @@ public class Pala {
         Pala uusi = new Pala();
         uusi.palanMuoto = palanMuoto;
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             uusi.setX(i, -getY(i));
             uusi.setY(i, getX(i));
         }
@@ -85,11 +86,11 @@ public class Pala {
         return uusi;
     }
 
-    public void setRandom(Pala p) {
+    public void setRandom() {
         Random r = new Random();
         int x = Math.abs(r.nextInt()) % 12 + 1;
         Pentomino[] values = Pentomino.values();
-        p.setPala(values[x]);
+        setPala(values[x]);
     }
 
     public int minX() {
@@ -105,7 +106,7 @@ public class Pala {
     public int minY() {
         int m = koordinaatit[0][1];
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             m = Math.min(m, koordinaatit[i][1]);
         }
 
