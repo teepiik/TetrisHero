@@ -8,7 +8,7 @@ package petris.pack;
 import java.util.Random;
 
 /**
- *
+ * 
  * @author teepiik
  */
 public class Pala {
@@ -16,11 +16,18 @@ public class Pala {
     private Pentomino palanMuoto;
     private int[][] koordinaatit;
 
+    /**
+     * Pala-luokan konstruktori.
+     */
     public Pala() {
         palanMuoto = Pentomino.Muodoton;
-        koordinaatit = new int[5][2]; // tarkista luvut!!!
+        koordinaatit = new int[5][2]; 
     }
 
+    /**
+     * Muuttaa Palan muodon parametrina annetuksi Pentominoksi.
+     * @param pentomino
+     */
     public void setPala(Pentomino pentomino) {
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 2; ++j) {
@@ -32,10 +39,22 @@ public class Pala {
     }
 
     // Setterit ja Getterit
+
+    /**
+     *
+     * @param indeksi
+     * @return
+     */
     public int getX(int indeksi) {
         return koordinaatit[indeksi][0];
     }
 
+    /**
+     * Antavat Palan parametrina annetun indeksin mukaisen osan Y/X-koordinaatin.
+     * Tai vastaavasti voi asettaa.
+     * @param indeksi
+     * @return
+     */
     public int getY(int indeksi) {
         return koordinaatit[indeksi][1];
     }
@@ -48,11 +67,28 @@ public class Pala {
         koordinaatit[indeksi][1] = y;
     }
 
+    /**
+     *
+     * @return
+     */
     public Pentomino getMuoto() {
         return palanMuoto;
     }
 
+    /**
+     *
+     * @param pento
+     */
+    public void setMuoto(Pentomino pento) {
+        this.palanMuoto = pento;
+    }
+
     // Palan kääntäminen
+
+    /**
+     *
+     * @return
+     */
     public Pala kaannaVasen() {
         if (palanMuoto == Pentomino.Xmino) {
             return this;
@@ -69,6 +105,10 @@ public class Pala {
         return uusi;
     }
 
+    /**
+     *
+     * @return
+     */
     public Pala kaannaOikea() {
         // Xminon muoto ulospäin ei muutu vaikka käännettäisiinkin.
         if (palanMuoto == Pentomino.Xmino) {
@@ -86,6 +126,9 @@ public class Pala {
         return uusi;
     }
 
+    /**
+     *
+     */
     public void setRandom() {
         Random r = new Random();
         int x = Math.abs(r.nextInt()) % 12 + 1;
@@ -93,6 +136,10 @@ public class Pala {
         setPala(values[x]);
     }
 
+    /**
+     *
+     * @return
+     */
     public int minX() {
         int m = koordinaatit[0][0];
 
@@ -103,6 +150,10 @@ public class Pala {
         return m;
     }
 
+    /**
+     *
+     * @return
+     */
     public int minY() {
         int m = koordinaatit[0][1];
 
@@ -111,12 +162,6 @@ public class Pala {
         }
 
         return m;
-    }
-    // testiä varten
-
-    public String toString() {
-        String palautus = "Ei ole tyhja";
-        return palautus;
     }
 
 }

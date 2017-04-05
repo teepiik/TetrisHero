@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 public class Petris extends JFrame {
 
     private JLabel ylaReuna;
-    
+
     public Petris() {
         ylaReuna = new JLabel("0");
         Lauta lauta = new Lauta(this);
@@ -29,5 +29,5 @@ public class Petris extends JFrame {
     public JLabel getYlaReuna() {
         return ylaReuna;
     }
-    
+
 }

@@ -18,9 +18,15 @@ import static org.junit.Assert.*;
  */
 public class PalaTest {
 
+    /**
+     *
+     */
     public PalaTest() {
     }
 
+    /**
+     *
+     */
     @Test
     public void tyhjaPalaTest() {
         Pala pala = new Pala();
@@ -31,13 +37,19 @@ public class PalaTest {
         assertEquals(Pentomino.Muodoton, pala.getMuoto());
     }
 
+    /**
+     *
+     */
     @Test // testa samalla myös muodon getterin
     public void muodonAsetusTest() {
         Pala pala = new Pala();
         pala.setPala(Pentomino.Nmino);
         assertEquals(Pentomino.Nmino, pala.getMuoto());
     }
-    
+
+    /**
+     *
+     */
     @Test // testa samalla myös palan gettereitä
     public void muodonAsetusKoordinaatitTest() {
         Pala pala = new Pala();
@@ -47,7 +59,10 @@ public class PalaTest {
         assertEquals(pala.getY(3), 1);
         assertEquals(pala.getY(2), -1);
     }
-    
+
+    /**
+     *
+     */
     @Test //huom. kaannaOikealle palauttaa returnina käännetyn palan, pelkkä metodin suoritus ei riitä
     public void kaannaOikealleTest() {
         Pala pala = new Pala();
@@ -63,9 +78,12 @@ public class PalaTest {
         assertEquals(pala.getY(2), 0);
         assertEquals(pala.getY(3), 0);
         assertEquals(pala.getY(4), 1);
-        
+
     }
-    
+
+    /**
+     *
+     */
     @Test //huom. kaannaVasemmalle palauttaa returnina käännetyn palan, pelkkä metodin suoritus ei riitä
     public void kaannaVasemmalleTest() {
         Pala pala = new Pala();
@@ -81,9 +99,12 @@ public class PalaTest {
         assertEquals(pala.getY(2), 0);
         assertEquals(pala.getY(3), 0);
         assertEquals(pala.getY(4), -1);
-        
+
     }
 
+    /**
+     *
+     */
     @Test
     public void setRandomTest() {
         Pala pala = new Pala();
@@ -99,7 +120,11 @@ public class PalaTest {
         assertEquals(eiMuodoton, true);
         assertEquals(eiTyhja, true);
     }
-    @Test 
+
+    /**
+     *
+     */
+    @Test
     public void minXTest() {
         Pala pala = new Pala();
         pala.setPala(Pentomino.Muodoton);
@@ -107,8 +132,11 @@ public class PalaTest {
         pala.setPala(Pentomino.Fmino);
         assertEquals(pala.minX(), -1);
     }
-    
-    @Test 
+
+    /**
+     *
+     */
+    @Test
     public void minYTest() {
         Pala pala = new Pala();
         pala.setPala(Pentomino.Nmino);

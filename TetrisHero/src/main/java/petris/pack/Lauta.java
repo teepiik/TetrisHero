@@ -35,6 +35,10 @@ public class Lauta extends JPanel implements ActionListener {
     private Pala palaPelissa;
     private Pentomino[] lauta;
 
+    /**
+     * Lauta-luokan konstruktori, joka myös käynnistää pelin.
+     * @param parent
+     */
     public Lauta(Petris parent) {
         setFocusable(true);
         palaPelissa = new Pala();
@@ -46,6 +50,11 @@ public class Lauta extends JPanel implements ActionListener {
         this.pudotetutPalat = 0; // voi aiheuttaa tuloksen nollautumisen
     }
 
+    /**
+     * Käsittelee pelin saaman keyboard syötteen, sisältää myös hieman pelin
+     * logiikkaa.
+     * @param ae
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         // jos pala pudonnut loppuun eli true, tehdään uusi pala, muuten pudotetaan lisää.
@@ -58,24 +67,46 @@ public class Lauta extends JPanel implements ActionListener {
 
     }
 
+    /**
+     * Palauttaa Petrispelin laudan leveyden Integerinä.
+     * @return
+     */
     public int laudanLeveys() {
         return (int) getSize().getWidth() / LAUTA_LEVEYS;
     }
 
+    /**
+     * Palauttaa Petrispelin laudan korkeuden Integerinä.
+     * @return
+     */
     public int laudanKorkeus() {
         return (int) getSize().getHeight() / LAUTA_KORKEUS;
     }
 
+    /**
+     * Tyhjentää Petrispelin laudan asettamalla kaikkien koordinaattien
+     * Pentominoksi muodottoman eli tyhjän.
+     */
     public void tyhjennaLauta() {
         for (int i = 0; i < LAUTA_LEVEYS * LAUTA_KORKEUS; i++) {
             lauta[i] = Pentomino.Muodoton;
         }
     }
 
+    /**
+     * Palauttaa Pentominon kohdassa (x,y), "Muodoton" tarkoitaa
+     * käytännössä tyhjää.
+     * @param x
+     * @param y
+     * @return
+     */
     public Pentomino palaKohdassa(int x, int y) {
         return lauta[y * LAUTA_LEVEYS + x];
     }
 
+    /**
+     *
+     */
     public void palanPudotus() {
         for (int i = 0; i < 5; i++) {
             int x = curX + palaPelissa.getX(i);
@@ -87,11 +118,16 @@ public class Lauta extends JPanel implements ActionListener {
     }
 
     // palan liikuttamista varten myös
+
+    /**
+     * Luo uuden Palan peliin, sisältää myös samalla pelin logiikkaa.
+     */
     public void uusiPala() {
         palaPelissa.setRandom();
         curX = LAUTA_LEVEYS / 2 + 1;
         curY = LAUTA_KORKEUS - 1 + palaPelissa.minY();
 
+        // ei enää tilaa uudelle palalle
         if (!yritaLiikkua(palaPelissa, curX, curY - 1)) {
             palaPelissa.setPala(Pentomino.Muodoton);
             kello.stop();
@@ -102,14 +138,38 @@ public class Lauta extends JPanel implements ActionListener {
 
     }
 
+    /**
+     * Kutsuu toista metodia, käytännössä liikuttaa palaa askeleen alaspäin.
+     */
     public void yksiAskelAlaspain() {
         palanPudotus();
     }
 
+    /**
+     * Palauttaa sen palan, joka tällä hetkellä on pelissä.
+     * ( = on laudan attribuuttina "palaPelissa".)
+     * @return
+     */
     public Pala palaPelissaNyt() {
         return palaPelissa;
     }
 
+    /**
+     * Metodi palaPelissa attribuutissa olevan Pala-olion muodon
+     * muuttamiseksi laudan kautta.
+     * @param pento
+     */
+    public void asetaPelissaOlevanPalanMuoto(Pentomino pento) {
+        palaPelissa.setMuoto(pento);
+    }
+
+    /**
+     * Piirtää lautaa ja Paloja laudalle.
+     * @param g
+     * @param x
+     * @param y
+     * @param muoto
+     */
     public void piirra(Graphics g, int x, int y, Pentomino muoto) {
         Color vari = muoto.color;
         g.setColor(vari);
@@ -122,6 +182,10 @@ public class Lauta extends JPanel implements ActionListener {
         g.drawLine(x + laudanLeveys() - 1, y + laudanKorkeus() - 1, x + laudanLeveys() - 1, y + 1);
     }
 
+    /**
+     * Piirtää laudan kokonaisuutena.
+     * @param g
+     */
     public void piirraLauta(Graphics g) {
         super.paint(g);
         Dimension koko = getSize();
@@ -159,6 +223,17 @@ public class Lauta extends JPanel implements ActionListener {
         }
 
         return true;
+    }
+
+    /**
+     * Tekee uuden palan, jonka muodoksi annetaan parametrina annettu muoto.
+     * @param pentomino
+     * @return
+     */
+    public Pala asetaPalaPentominolla(Pentomino pentomino) {
+        Pala pala = new Pala();
+        pala.setMuoto(pentomino);
+        return pala;
     }
 
 }

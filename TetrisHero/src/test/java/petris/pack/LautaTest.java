@@ -32,19 +32,49 @@ public class LautaTest {
         assertEquals(onko, true);
 
     }
-    /* EI TOIMI VIELÄ, KOODI KESKEN
-    @Test // asetetaan valmiiksi luokassa, nyt 15
-    public void laudanLeveysTest() {
+
+    @Test // huom. ei toimi random palalla, koska assertEqual vaihtelee, osa koord[0] on miinuksella alussa osa ei
+    public void liikuAlaspainTest() {
         Lauta lauta = new Lauta(petris);
-        int testi = 15;
-        assertEquals(testi,lauta.laudanLeveys());
+        lauta.asetaPelissaOlevanPalanMuoto(Pentomino.Fmino);
+        Pala pala = lauta.palaPelissaNyt();
+        int i = pala.getY(0);
+        lauta.yksiAskelAlaspain();
+        int j = pala.getY(0);
+        assertEquals(i, j - 1);
+        // koska alotuksessa -1
 
     }
-    @Test // asetetaan valmiiksi luokassa, nyt 30
-    public void laudanKorkeusTest() {
+     
+    @Test
+    public void palaKohdassaTest() {
         Lauta lauta = new Lauta(petris);
-        int testi = 30;
-        assertEquals(testi, lauta.laudanKorkeus());
+        Pala pala = lauta.palaPelissaNyt();
+        int x = pala.getX(0);
+        int y = pala.getY(0);
+        Pentomino testi = lauta.palaKohdassa(x, y);
+        Pala testi1 = lauta.asetaPalaPentominolla(testi);
+        assertEquals(pala.getMuoto(), testi1.getMuoto());
 
-    }*/
+    } 
+    
+    /* Ei toimi vielä
+    @Test
+    public void tyhjennaLautaTest() {
+        Lauta lauta = new Lauta(petris);
+        Pala pala = lauta.palaPelissaNyt();
+        int x = pala.getX(0);
+        int y = pala.getY(0);
+        boolean eiMuodoton = false;
+        if (pala.getMuoto()!=Pentomino.Muodoton) {
+            eiMuodoton = true;
+        }
+        lauta.tyhjennaLauta();
+        Pentomino p = Pentomino.Muodoton;
+        Pentomino q = lauta.palaKohdassa(x, y);
+        assertEquals(eiMuodoton, true);
+        //assertEquals(p, q);
+
+    } */
+
 }
