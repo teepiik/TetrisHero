@@ -5,6 +5,7 @@
  */
 package petris.pack;
 
+import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -14,20 +15,21 @@ import javax.swing.JLabel;
  */
 public class Petris extends JFrame {
 
-    private JLabel ylaReuna;
+    private JLabel tulosTaulu;
 
     public Petris() {
-        ylaReuna = new JLabel("0");
+        tulosTaulu = new JLabel("0");
+        add(tulosTaulu, BorderLayout.SOUTH);
         Lauta lauta = new Lauta(this);
         add(lauta);
+        lauta.kaynnistys();
         setSize(400, 600);
         setTitle("Petris");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        lauta.uusiPala();
     }
 
-    public JLabel getYlaReuna() {
-        return ylaReuna;
+    public JLabel getTulosTaulu() {
+        return tulosTaulu;
     }
 
 }

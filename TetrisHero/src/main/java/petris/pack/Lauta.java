@@ -29,14 +29,15 @@ public class Lauta extends JPanel implements ActionListener {
     private boolean onKaynnissa = false;
     private boolean onPause = false;
     private boolean palaPudonnutLoppuun = false;
-    private int curX = 0;
-    private int curY = 0;
-    private JLabel ylaReuna;
-    private Pala palaPelissa;
+    public int curX = 0;
+    public int curY = 0;
+    public JLabel tulosTaulu;
+    public Pala palaPelissa;
     private Pentomino[] lauta;
 
     /**
      * Lauta-luokan konstruktori, joka myös käynnistää pelin.
+     *
      * @param parent
      */
     public Lauta(Petris parent) {
@@ -44,7 +45,7 @@ public class Lauta extends JPanel implements ActionListener {
         palaPelissa = new Pala();
         kello = new Timer(400, this);
         kello.start();
-        ylaReuna = parent.getYlaReuna();
+        tulosTaulu = parent.getTulosTaulu();
         lauta = new Pentomino[LAUTA_LEVEYS * LAUTA_KORKEUS];
         tyhjennaLauta(); // konstruktori tekee tyhjän laudan.
         this.pudotetutPalat = 0; // voi aiheuttaa tuloksen nollautumisen
@@ -53,6 +54,7 @@ public class Lauta extends JPanel implements ActionListener {
     /**
      * Käsittelee pelin saaman keyboard syötteen, sisältää myös hieman pelin
      * logiikkaa.
+     *
      * @param ae
      */
     @Override
@@ -69,6 +71,7 @@ public class Lauta extends JPanel implements ActionListener {
 
     /**
      * Palauttaa Petrispelin laudan leveyden Integerinä.
+     *
      * @return
      */
     public int laudanLeveys() {
@@ -77,6 +80,7 @@ public class Lauta extends JPanel implements ActionListener {
 
     /**
      * Palauttaa Petrispelin laudan korkeuden Integerinä.
+     *
      * @return
      */
     public int laudanKorkeus() {
@@ -94,8 +98,9 @@ public class Lauta extends JPanel implements ActionListener {
     }
 
     /**
-     * Palauttaa Pentominon kohdassa (x,y), "Muodoton" tarkoitaa
-     * käytännössä tyhjää.
+     * Palauttaa Pentominon kohdassa (x,y), "Muodoton" tarkoitaa käytännössä
+     * tyhjää.
+     *
      * @param x
      * @param y
      * @return
@@ -118,7 +123,6 @@ public class Lauta extends JPanel implements ActionListener {
     }
 
     // palan liikuttamista varten myös
-
     /**
      * Luo uuden Palan peliin, sisältää myös samalla pelin logiikkaa.
      */
@@ -132,7 +136,7 @@ public class Lauta extends JPanel implements ActionListener {
             palaPelissa.setPala(Pentomino.Muodoton);
             kello.stop();
             onKaynnissa = false;
-            ylaReuna.setText("Peli loppui!");
+            tulosTaulu.setText("Peli loppui!");
 
         }
 
@@ -146,8 +150,9 @@ public class Lauta extends JPanel implements ActionListener {
     }
 
     /**
-     * Palauttaa sen palan, joka tällä hetkellä on pelissä.
-     * ( = on laudan attribuuttina "palaPelissa".)
+     * Palauttaa sen palan, joka tällä hetkellä on pelissä. ( = on laudan
+     * attribuuttina "palaPelissa".)
+     *
      * @return
      */
     public Pala palaPelissaNyt() {
@@ -155,8 +160,9 @@ public class Lauta extends JPanel implements ActionListener {
     }
 
     /**
-     * Metodi palaPelissa attribuutissa olevan Pala-olion muodon
-     * muuttamiseksi laudan kautta.
+     * Metodi palaPelissa attribuutissa olevan Pala-olion muodon muuttamiseksi
+     * laudan kautta.
+     *
      * @param pento
      */
     public void asetaPelissaOlevanPalanMuoto(Pentomino pento) {
@@ -165,6 +171,7 @@ public class Lauta extends JPanel implements ActionListener {
 
     /**
      * Piirtää lautaa ja Paloja laudalle.
+     *
      * @param g
      * @param x
      * @param y
@@ -184,9 +191,11 @@ public class Lauta extends JPanel implements ActionListener {
 
     /**
      * Piirtää laudan kokonaisuutena.
+     *
      * @param g
      */
-    public void piirraLauta(Graphics g) {
+    @Override
+    public void paint(Graphics g) {
         super.paint(g);
         Dimension koko = getSize();
 
@@ -199,6 +208,13 @@ public class Lauta extends JPanel implements ActionListener {
                 if (pentomino != Pentomino.Muodoton) {
                     piirra(g, j * laudanLeveys(), laudanKatto + i * laudanKorkeus(), pentomino);
                 }
+            }
+        }
+        if (palaPelissa.getMuoto() != Pentomino.Muodoton) {
+            for (int i = 0; i < 5; i++) {
+                int x = curX + palaPelissa.getX(i);
+                int y = curY + palaPelissa.getY(i);
+                piirra(g, x * laudanLeveys(), laudanKatto + (LAUTA_KORKEUS - y - 1) * laudanKorkeus(), palaPelissa.getMuoto());
             }
         }
     }
@@ -227,6 +243,7 @@ public class Lauta extends JPanel implements ActionListener {
 
     /**
      * Tekee uuden palan, jonka muodoksi annetaan parametrina annettu muoto.
+     *
      * @param pentomino
      * @return
      */
@@ -234,6 +251,58 @@ public class Lauta extends JPanel implements ActionListener {
         Pala pala = new Pala();
         pala.setMuoto(pentomino);
         return pala;
+    }
+
+    public void tyhjennaTaydetRivit() {
+        int taysiaRiveja = 0;
+
+        for (int i = LAUTA_KORKEUS - 1; i >= 0; --i) {
+            boolean riviOnTaysi = true;
+
+            for (int j = 0; j < LAUTA_LEVEYS;) {
+                if (palaKohdassa(j, i) == Pentomino.Muodoton) {
+                    riviOnTaysi = false;
+                    break;
+                }
+            }
+            if (riviOnTaysi) {
+                pudotetutPalat++;
+
+                for (int a = i; a < LAUTA_KORKEUS - 1; a++) {
+                    for (int b = 0; b < LAUTA_KORKEUS; b++) {
+                        lauta[a * LAUTA_LEVEYS + b] = palaKohdassa(b, a + 1);
+                    }
+                }
+            } // TODO statsien päivitys
+        }
+
+    }
+
+    public void kaynnistys() {
+        if (onPause) {
+            return;
+        }
+        onKaynnissa = true;
+        palaPudonnutLoppuun = false;
+        pudotetutPalat = 0;
+        tyhjennaLauta();
+        uusiPala();
+        kello.start();
+    }
+
+    public void pysaytys() {
+        if (!onKaynnissa) {
+            return;
+        }
+        onPause = true;
+        if (onPause) {
+            kello.stop();
+            tulosTaulu.setText("Pysäytetty");
+        } else {
+            kello.start();
+            tulosTaulu.setText(String.valueOf(pudotetutPalat));
+        }
+        repaint();
     }
 
 }
