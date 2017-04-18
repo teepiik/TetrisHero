@@ -6,11 +6,8 @@
 package petris.pack;
 
 import java.util.Objects;
-import org.junit.After;
-import org.junit.AfterClass;
 import static org.junit.Assert.assertEquals;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import static org.junit.Assert.fail;
 import org.junit.Test;
 
 /**
@@ -39,9 +36,9 @@ public class LautaTest {
         lauta.asetaPelissaOlevanPalanMuoto(Pentomino.Fmino);
         Pala pala = lauta.palaPelissaNyt();
         int i = pala.getY(0);
-        lauta.yksiAskelAlaspain();
+        lauta.yksiRiviAlaspain();
         int j = pala.getY(0);
-        assertEquals(i, j - 1);
+        assertEquals(i, j);
         // koska alotuksessa -1
 
     }
@@ -76,5 +73,18 @@ public class LautaTest {
         //assertEquals(p, q);
 
     } */
+    @Test
+    public void LuadanKorkeusJaLaudanLeveysTest() {
+        Lauta instance = null;
+        int odotus = 0;
+        int tulos = instance.laudanLeveys();
+        assertEquals(odotus, tulos);
+        tulos = instance.laudanKorkeus();
+        assertEquals(odotus, tulos);
+        Lauta lauta = new Lauta();
+        assertEquals(30, lauta.laudanKorkeus());
+        assertEquals(15, lauta.laudanLeveys());
+        
+    }
 
 }

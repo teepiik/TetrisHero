@@ -15,3 +15,7 @@ linkit:
 
 [tuntikirjanpito](Dokumentaatio/Tuntikirjanpito.md)
 
+[pit-raportit](Dokumentaatio/pit)
+
+[checkstyle-raportti](Dokumentaatio/checkstyle)
+

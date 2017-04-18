@@ -10,7 +10,6 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import static javafx.scene.paint.Color.color;
 import javax.swing.JLabel;
 import javax.swing.Timer;
 import javax.swing.JPanel;
@@ -23,9 +22,8 @@ public class Lauta extends JPanel implements ActionListener {
 
     private static final int LAUTA_LEVEYS = 15;
     private static final int LAUTA_KORKEUS = 30;
-    private static final Color[] VARIT = {new Color(0, 0, 0)};
     private Timer kello;
-    private int pudotetutPalat = 0;
+    private int tyhjennetytRivit = 0;
     private boolean onKaynnissa = false;
     private boolean onPause = false;
     private boolean palaPudonnutLoppuun = false;
@@ -48,7 +46,12 @@ public class Lauta extends JPanel implements ActionListener {
         tulosTaulu = parent.getTulosTaulu();
         lauta = new Pentomino[LAUTA_LEVEYS * LAUTA_KORKEUS];
         tyhjennaLauta(); // konstruktori tekee tyhjän laudan.
-        this.pudotetutPalat = 0; // voi aiheuttaa tuloksen nollautumisen
+
+        // lisää keyadapteri
+    }
+    public Lauta() {
+        // Tämä on vain testiä varten.
+        
     }
 
     /**
@@ -64,7 +67,7 @@ public class Lauta extends JPanel implements ActionListener {
             palaPudonnutLoppuun = false; // alustetaan uutta palaa varten
             uusiPala();
         } else {
-            yksiAskelAlaspain();
+            yksiRiviAlaspain();
         }
 
     }
@@ -116,7 +119,10 @@ public class Lauta extends JPanel implements ActionListener {
         for (int i = 0; i < 5; i++) {
             int x = curX + palaPelissa.getX(i);
             int y = curY - palaPelissa.getY(i);
+            lauta[y * LAUTA_LEVEYS + x] = palaPelissa.getMuoto();
         }
+        tyhjennaTaydetRivit();
+
         if (!palaPudonnutLoppuun) {
             uusiPala();
         }
@@ -145,8 +151,10 @@ public class Lauta extends JPanel implements ActionListener {
     /**
      * Kutsuu toista metodia, käytännössä liikuttaa palaa askeleen alaspäin.
      */
-    public void yksiAskelAlaspain() {
-        palanPudotus();
+    public void yksiRiviAlaspain() {
+        if (!yritaLiikkua(palaPelissa, curX, curY - 1)) {
+            palanPudotus();
+        }
     }
 
     /**
@@ -182,11 +190,8 @@ public class Lauta extends JPanel implements ActionListener {
         g.setColor(vari);
         g.fillRect(x + 1, y + 1, laudanLeveys() - 2, laudanKorkeus() - 2);
         g.setColor(vari.brighter());
-        g.drawLine(x, y, x + laudanLeveys() - 1, y);
-        g.drawLine(x, y + laudanKorkeus() - 1, x, y);
         g.setColor(vari.darker());
-        g.drawLine(x + 1, y + laudanKorkeus() - 1, x + laudanLeveys(), y - laudanKorkeus() - 1);
-        g.drawLine(x + laudanLeveys() - 1, y + laudanKorkeus() - 1, x + laudanLeveys() - 1, y + 1);
+        
     }
 
     /**
@@ -213,7 +218,7 @@ public class Lauta extends JPanel implements ActionListener {
         if (palaPelissa.getMuoto() != Pentomino.Muodoton) {
             for (int i = 0; i < 5; i++) {
                 int x = curX + palaPelissa.getX(i);
-                int y = curY + palaPelissa.getY(i);
+                int y = curY - palaPelissa.getY(i);
                 piirra(g, x * laudanLeveys(), laudanKatto + (LAUTA_KORKEUS - y - 1) * laudanKorkeus(), palaPelissa.getMuoto());
             }
         }
@@ -222,7 +227,7 @@ public class Lauta extends JPanel implements ActionListener {
     private boolean yritaLiikkua(Pala uusiPala, int uusiX, int uusiY) {
         for (int i = 0; i < 5; i++) {
             int x = uusiX + uusiPala.getX(i);
-            int y = uusiY + uusiPala.getY(i);
+            int y = uusiY - uusiPala.getY(i);
 
             // Liikkuminen yli laudan
             if (x < 0 || x >= LAUTA_LEVEYS || y < 0 || y >= LAUTA_KORKEUS) {
@@ -232,11 +237,12 @@ public class Lauta extends JPanel implements ActionListener {
             if (palaKohdassa(x, y) != Pentomino.Muodoton) {
                 return false;
             }
-            palaPelissa = uusiPala;
-            curX = uusiX;
-            curY = uusiY;
-            repaint();
+
         }
+        palaPelissa = uusiPala;
+        curX = uusiX;
+        curY = uusiY;
+        repaint();
 
         return true;
     }
@@ -256,24 +262,30 @@ public class Lauta extends JPanel implements ActionListener {
     public void tyhjennaTaydetRivit() {
         int taysiaRiveja = 0;
 
-        for (int i = LAUTA_KORKEUS - 1; i >= 0; --i) {
+        for (int i = LAUTA_KORKEUS - 1; i >= 0; i--) {
             boolean riviOnTaysi = true;
 
-            for (int j = 0; j < LAUTA_LEVEYS;) {
+            for (int j = 0; j < LAUTA_LEVEYS; j++) {
                 if (palaKohdassa(j, i) == Pentomino.Muodoton) {
                     riviOnTaysi = false;
                     break;
                 }
             }
             if (riviOnTaysi) {
-                pudotetutPalat++;
+                taysiaRiveja++;
 
                 for (int a = i; a < LAUTA_KORKEUS - 1; a++) {
                     for (int b = 0; b < LAUTA_KORKEUS; b++) {
                         lauta[a * LAUTA_LEVEYS + b] = palaKohdassa(b, a + 1);
                     }
                 }
-            } // TODO statsien päivitys
+            } if (taysiaRiveja>0) {
+                tyhjennetytRivit += taysiaRiveja;
+                tulosTaulu.setText(String.valueOf(tyhjennetytRivit));
+                palaPudonnutLoppuun = true;
+                palaPelissa.setPala(Pentomino.Muodoton);
+                repaint();
+            }
         }
 
     }
@@ -284,7 +296,7 @@ public class Lauta extends JPanel implements ActionListener {
         }
         onKaynnissa = true;
         palaPudonnutLoppuun = false;
-        pudotetutPalat = 0;
+        tyhjennetytRivit = 0;
         tyhjennaLauta();
         uusiPala();
         kello.start();
@@ -300,7 +312,7 @@ public class Lauta extends JPanel implements ActionListener {
             tulosTaulu.setText("Pysäytetty");
         } else {
             kello.start();
-            tulosTaulu.setText(String.valueOf(pudotetutPalat));
+            tulosTaulu.setText(String.valueOf(tyhjennetytRivit));
         }
         repaint();
     }

@@ -5,38 +5,30 @@
  */
 package petris.pack;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import javax.swing.JLabel;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  *
- * @author teemu
+ * @author teepiik
  */
-// Ei vielä mitään testailtavaa
+
 public class PetrisTest {
 
     public PetrisTest() {
     }
-
-    @BeforeClass
-    public static void setUpClass() {
+    @Test
+    public void GetTulosTauluTest() {
+        Petris instance = new Petris();
+        JLabel expResult = null;
+        JLabel result = instance.getTulosTaulu();
+        //assertFalse(expResult, result);
+        // Pitää vaihtaa nyt not null
+       
     }
 
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
-    }
+    
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:

@@ -8,7 +8,8 @@ package petris.pack;
 import java.util.Random;
 
 /**
- * 
+ * Pala luokka sisältää Pentominojen rungon, koordinaatit ja niiden toiminnot.
+ *
  * @author teepiik
  */
 public class Pala {
@@ -21,16 +22,17 @@ public class Pala {
      */
     public Pala() {
         palanMuoto = Pentomino.Muodoton;
-        koordinaatit = new int[5][2]; 
+        koordinaatit = new int[5][2];
     }
 
     /**
      * Muuttaa Palan muodon parametrina annetuksi Pentominoksi.
+     *
      * @param pentomino
      */
     public void setPala(Pentomino pentomino) {
         for (int i = 0; i < 5; i++) {
-            for (int j = 0; j < 2; ++j) {
+            for (int j = 0; j < 2; j++) {
                 koordinaatit[i][j] = pentomino.koordinaatit[i][j];
             }
         }
@@ -39,7 +41,6 @@ public class Pala {
     }
 
     // Setterit ja Getterit
-
     /**
      *
      * @param indeksi
@@ -50,8 +51,9 @@ public class Pala {
     }
 
     /**
-     * Antavat Palan parametrina annetun indeksin mukaisen osan Y/X-koordinaatin.
-     * Tai vastaavasti voi asettaa.
+     * Antavat Palan parametrina annetun indeksin mukaisen osan
+     * Y/X-koordinaatin. Tai vastaavasti voi asettaa.
+     *
      * @param indeksi
      * @return
      */
@@ -76,6 +78,7 @@ public class Pala {
     }
 
     /**
+     * Palan muodon asettaminen manuaalisesti.
      *
      * @param pento
      */
@@ -83,9 +86,8 @@ public class Pala {
         this.palanMuoto = pento;
     }
 
-    // Palan kääntäminen
-
     /**
+     * Kääntää palaa 90 astetta vasemmalle.
      *
      * @return
      */
@@ -106,6 +108,7 @@ public class Pala {
     }
 
     /**
+     * Kääntää palaa 90 astetta oikealle.
      *
      * @return
      */
@@ -127,16 +130,17 @@ public class Pala {
     }
 
     /**
-     *
+     * Asettaa satunnaisen muodon palalle.
      */
     public void setRandom() {
         Random r = new Random();
         int x = Math.abs(r.nextInt()) % 12 + 1;
-        Pentomino[] values = Pentomino.values();
-        setPala(values[x]);
+        Pentomino[] arvot = Pentomino.values();
+        setPala(arvot[x]);
     }
 
     /**
+     * Palauttaa palan pienimmän x-koordinaatin
      *
      * @return
      */
@@ -151,6 +155,7 @@ public class Pala {
     }
 
     /**
+     * Palauttaa palan pienimmän y-koordinaatin.
      *
      * @return
      */
