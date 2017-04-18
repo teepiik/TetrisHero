@@ -14,6 +14,8 @@ Päivä | Tunnit | Kuvaus
 05.04.2017 | 2h | Lisää testejä, JavaDocsin aloitus, viikkopalautuksen viimeistely.
 13.04.2017 | 2h | Koodia pidemmälle, muutama testi lisää.
 17.04.2017 | 3h | Lisää testejä, dokumentaation viilausta, lisää koodia.
+18.04.2017 | 2h | Lisää testejä, katselmo2.
+
 
 
 

@@ -30,19 +30,6 @@ public class LautaTest {
 
     }
 
-    @Test // huom. ei toimi random palalla, koska assertEqual vaihtelee, osa koord[0] on miinuksella alussa osa ei
-    public void liikuAlaspainTest() {
-        Lauta lauta = new Lauta(petris);
-        lauta.asetaPelissaOlevanPalanMuoto(Pentomino.Fmino);
-        Pala pala = lauta.palaPelissaNyt();
-        int i = pala.getY(0);
-        lauta.yksiRiviAlaspain();
-        int j = pala.getY(0);
-        assertEquals(i, j);
-        // koska alotuksessa -1
-
-    }
-     
     @Test
     public void palaKohdassaTest() {
         Lauta lauta = new Lauta(petris);
@@ -53,8 +40,8 @@ public class LautaTest {
         Pala testi1 = lauta.asetaPalaPentominolla(testi);
         assertEquals(pala.getMuoto(), testi1.getMuoto());
 
-    } 
-    
+    }
+
     /* Ei toimi vielä
     @Test
     public void tyhjennaLautaTest() {
@@ -74,17 +61,44 @@ public class LautaTest {
 
     } */
     @Test
-    public void LuadanKorkeusJaLaudanLeveysTest() {
-        Lauta instance = null;
-        int odotus = 0;
-        int tulos = instance.laudanLeveys();
-        assertEquals(odotus, tulos);
-        tulos = instance.laudanKorkeus();
-        assertEquals(odotus, tulos);
-        Lauta lauta = new Lauta();
-        assertEquals(30, lauta.laudanKorkeus());
-        assertEquals(15, lauta.laudanLeveys());
-        
+    public void kaynnistysJaPauseTest() {
+        Lauta lauta = new Lauta(petris);
+        lauta.kaynnistys();
+        boolean testi = lauta.onkoKaynnissa();
+        assertEquals(testi, true);
+        lauta.pysaytys();
+        boolean testiPause = lauta.onkoPause();
+        assertEquals(testiPause, true);
+
     }
+
+    @Test // saattaa aiheuttaa välillä errorin, muuten toimii.
+    public void tyhjennaLautaTest() {
+        Lauta lauta = new Lauta(petris);
+        lauta.uusiPala();
+        Pala pala = lauta.palaPelissaNyt();
+        int x = pala.getX(0);
+        int y = pala.getY(0);
+        boolean validi = false;
+        if(pala.getMuoto()!=Pentomino.Muodoton) {
+            validi = true;
+        }
+        lauta.tyhjennaLauta();
+        Pentomino odotus = Pentomino.Muodoton;
+        Pentomino testi1 = lauta.palaKohdassa(x, y);
+        assertEquals(validi, true);
+        assertEquals(odotus, testi1);
+    }
+
+    @Test
+    public void RivienTyhjennysTest() {
+        Lauta lauta = new Lauta(petris);
+        int odotus = 0;
+        lauta.tyhjennaTaydetRivit();
+        int tulos = lauta.getDropatutRivit();
+        assertEquals(odotus, tulos);
+
+    }
+    
 
 }

@@ -13,26 +13,21 @@ import static org.junit.Assert.*;
  *
  * @author teepiik
  */
-
 public class PetrisTest {
 
     public PetrisTest() {
     }
+
     @Test
     public void GetTulosTauluTest() {
         Petris instance = new Petris();
-        JLabel expResult = null;
-        JLabel result = instance.getTulosTaulu();
-        //assertFalse(expResult, result);
-        // Pitää vaihtaa nyt not null
-       
+        JLabel testi = instance.getTulosTaulu();
+        boolean toimiiko = true;
+        if (testi == null) {
+            toimiiko = false;
+        }
+        assertEquals(toimiiko, true);
+
     }
 
-    
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }

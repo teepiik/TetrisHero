@@ -20,10 +20,10 @@ import javax.swing.JPanel;
  */
 public class Lauta extends JPanel implements ActionListener {
 
-    private static final int LAUTA_LEVEYS = 15;
-    private static final int LAUTA_KORKEUS = 30;
+    public static final int LAUTA_LEVEYS = 15;
+    public static final int LAUTA_KORKEUS = 30;
     private Timer kello;
-    private int tyhjennetytRivit = 0;
+    public int tyhjennetytRivit = 0;
     private boolean onKaynnissa = false;
     private boolean onPause = false;
     private boolean palaPudonnutLoppuun = false;
@@ -49,9 +49,10 @@ public class Lauta extends JPanel implements ActionListener {
 
         // lisää keyadapteri
     }
+
     public Lauta() {
         // Tämä on vain testiä varten.
-        
+
     }
 
     /**
@@ -191,7 +192,7 @@ public class Lauta extends JPanel implements ActionListener {
         g.fillRect(x + 1, y + 1, laudanLeveys() - 2, laudanKorkeus() - 2);
         g.setColor(vari.brighter());
         g.setColor(vari.darker());
-        
+
     }
 
     /**
@@ -279,7 +280,8 @@ public class Lauta extends JPanel implements ActionListener {
                         lauta[a * LAUTA_LEVEYS + b] = palaKohdassa(b, a + 1);
                     }
                 }
-            } if (taysiaRiveja>0) {
+            }
+            if (taysiaRiveja > 0) {
                 tyhjennetytRivit += taysiaRiveja;
                 tulosTaulu.setText(String.valueOf(tyhjennetytRivit));
                 palaPudonnutLoppuun = true;
@@ -302,6 +304,10 @@ public class Lauta extends JPanel implements ActionListener {
         kello.start();
     }
 
+    public boolean onkoKaynnissa() {
+        return onKaynnissa;
+    }
+
     public void pysaytys() {
         if (!onKaynnissa) {
             return;
@@ -315,6 +321,15 @@ public class Lauta extends JPanel implements ActionListener {
             tulosTaulu.setText(String.valueOf(tyhjennetytRivit));
         }
         repaint();
+    }
+
+    boolean onkoPause() {
+        return onPause;
+    }
+
+    public int getDropatutRivit() {
+        return this.tyhjennetytRivit;
+
     }
 
 }
