@@ -1,0 +1,7 @@
+En vielä päivittänyt luokkakaaviota, koska todennäköisesti tulen järjestelemään
+luokkia hieman uudelleen, samoin ainakin keyadapterista tulee uusi luokka. Tavoite on
+saada peli toimimaan nyt vappuviikolla ja samalla suorittaa viilausta ja fixailua.
+
+En saanut osaa testeistä toimimaan vielä, mutta kommentoituina löytyy lisää testejä jotka
+toimivat sinne päin.
+-Terveisin Teemu

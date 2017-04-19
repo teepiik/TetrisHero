@@ -15,6 +15,7 @@ import javax.swing.Timer;
 import javax.swing.JPanel;
 
 /**
+ * Lauta-luokka sisältää pelin graafisen toteutuksen ja pelilogiikan.
  *
  * @author teepiik
  */
@@ -41,7 +42,7 @@ public class Lauta extends JPanel implements ActionListener {
     public Lauta(Petris parent) {
         setFocusable(true);
         palaPelissa = new Pala();
-        kello = new Timer(400, this);
+        kello = new Timer(300, this);
         kello.start();
         tulosTaulu = parent.getTulosTaulu();
         lauta = new Pentomino[LAUTA_LEVEYS * LAUTA_KORKEUS];

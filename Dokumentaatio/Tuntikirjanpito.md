@@ -15,6 +15,7 @@ Päivä | Tunnit | Kuvaus
 13.04.2017 | 2h | Koodia pidemmälle, muutama testi lisää.
 17.04.2017 | 3h | Lisää testejä, dokumentaation viilausta, lisää koodia.
 18.04.2017 | 2h | Lisää testejä, katselmo2.
+19.04.2017 | 1h | Sekvenssikaavio, viikkodediksen raportit, pientä viilausta koodiin.
 
 
 

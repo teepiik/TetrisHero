@@ -7,6 +7,11 @@ Aiheeksi on valittu klassisen Tetriksen muunnelma Petris, jossa perinteiset neli
 Luokkakaavio
 ![Luokkakaavio](Dokumentaatio/luokkakaavio1.png)
 
+Sekvenssikaavio
+(Hahmotelma, toisaalta Petriksellä käyttötapaukset ovat käytännössä aina samoja)
+![Seksvenssikaavio](Dokumentaatio/sekvenssikaavio.jpg)
+
+
 Dokumentaatio
 
 linkit:
