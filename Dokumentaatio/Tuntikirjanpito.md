@@ -16,6 +16,7 @@ Päivä | Tunnit | Kuvaus
 17.04.2017 | 3h | Lisää testejä, dokumentaation viilausta, lisää koodia.
 18.04.2017 | 2h | Lisää testejä, katselmo2.
 19.04.2017 | 1h | Sekvenssikaavio, viikkodediksen raportit, pientä viilausta koodiin.
+25.04.2017 | 5h | KeyListener/Adapter, bugien viilausta, pelin testausta.
 
 
 

@@ -19,7 +19,7 @@ import javax.swing.JPanel;
  *
  * @author teepiik
  */
-public class Lauta extends JPanel implements ActionListener {
+public class Lauta extends JPanel implements ActionListener{
 
     public static final int LAUTA_LEVEYS = 15;
     public static final int LAUTA_KORKEUS = 30;
@@ -47,6 +47,7 @@ public class Lauta extends JPanel implements ActionListener {
         tulosTaulu = parent.getTulosTaulu();
         lauta = new Pentomino[LAUTA_LEVEYS * LAUTA_KORKEUS];
         tyhjennaLauta(); // konstruktori tekee tyhjän laudan.
+        addKeyListener(new PetrisKeyAdapter(this));
 
         // lisää keyadapteri
     }
@@ -277,7 +278,7 @@ public class Lauta extends JPanel implements ActionListener {
                 taysiaRiveja++;
 
                 for (int a = i; a < LAUTA_KORKEUS - 1; a++) {
-                    for (int b = 0; b < LAUTA_KORKEUS; b++) {
+                    for (int b = 0; b < LAUTA_LEVEYS; b++) {
                         lauta[a * LAUTA_LEVEYS + b] = palaKohdassa(b, a + 1);
                     }
                 }
@@ -324,6 +325,18 @@ public class Lauta extends JPanel implements ActionListener {
         repaint();
     }
 
+    public void pudotaKokonaanAlas() {
+        int uusY = curY;
+
+        while (uusY > 0) {
+            if (!yritaLiikkua(palaPelissa, curX, uusY - 1)) {
+                break;
+            }
+            uusY--;
+        }
+        palanPudotus();
+    }
+
     boolean onkoPause() {
         return onPause;
     }
@@ -331,6 +344,30 @@ public class Lauta extends JPanel implements ActionListener {
     public int getDropatutRivit() {
         return this.tyhjennetytRivit;
 
+    }
+
+    public Pentomino getPeliPalanMuoto() {
+        return palaPelissa.getMuoto();
+    }
+
+    public void laitaPauselle() {
+        this.onPause = true;
+    }
+
+    public void keyVasemmalle() {
+        yritaLiikkua(palaPelissa, curX - 1, curY);
+    }
+
+    public void keyOikealle() {
+        yritaLiikkua(palaPelissa, curX + 1, curY);
+    }
+
+    public void keyAlasKaanto() {
+        yritaLiikkua(palaPelissa.kaannaOikea(), curX, curY);
+    }
+
+    public void keyYlosKaanto() {
+        yritaLiikkua(palaPelissa.kaannaVasen(), curX, curY);
     }
 
 }
