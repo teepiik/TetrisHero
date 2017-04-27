@@ -70,6 +70,7 @@ public class Pala {
     }
 
     /**
+     * Palauttaa palan Pentomino-muodon.
      *
      * @return
      */

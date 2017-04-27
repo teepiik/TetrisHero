@@ -17,6 +17,7 @@ Päivä | Tunnit | Kuvaus
 18.04.2017 | 2h | Lisää testejä, katselmo2.
 19.04.2017 | 1h | Sekvenssikaavio, viikkodediksen raportit, pientä viilausta koodiin.
 25.04.2017 | 5h | KeyListener/Adapter, bugien viilausta, pelin testausta.
+27.04.2017 | 2h | Demotilaisuus, JavaDocin tekoa.
 
 
 

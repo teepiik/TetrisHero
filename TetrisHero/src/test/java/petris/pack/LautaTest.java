@@ -90,7 +90,6 @@ public class LautaTest {
         assertEquals(validi, true);
         assertEquals(odotus, testi1);
     }*/
-
     @Test
     public void RivienTyhjennysTest() {
         Lauta lauta = new Lauta(petris);

@@ -19,18 +19,45 @@ import javax.swing.JPanel;
  *
  * @author teepiik
  */
-public class Lauta extends JPanel implements ActionListener{
+public class Lauta extends JPanel implements ActionListener {
 
+    /**
+     * Pelilaudan leveys.
+     */
     public static final int LAUTA_LEVEYS = 15;
+
+    /**
+     * Pelilaudan korkeus.
+     */
     public static final int LAUTA_KORKEUS = 30;
     private Timer kello;
+
+    /**
+     * Tyhjennettyjen rivien määrä, =score.
+     */
     public int tyhjennetytRivit = 0;
     private boolean onKaynnissa = false;
     private boolean onPause = false;
     private boolean palaPudonnutLoppuun = false;
+
+    /**
+     *
+     */
     public int curX = 0;
+
+    /**
+     *
+     */
     public int curY = 0;
+
+    /**
+     * Palkki alalaidassa, jossa näkyy tulos / status.
+     */
     public JLabel tulosTaulu;
+
+    /**
+     * Pelattavissa oleva Pala-olio laudalla.
+     */
     public Pala palaPelissa;
     private Pentomino[] lauta;
 
@@ -52,6 +79,9 @@ public class Lauta extends JPanel implements ActionListener{
         // lisää keyadapteri
     }
 
+    /**
+     * Parametriton konstruktori testejä varten.
+     */
     public Lauta() {
         // Tämä on vain testiä varten.
 
@@ -116,7 +146,7 @@ public class Lauta extends JPanel implements ActionListener{
     }
 
     /**
-     *
+     * Pudottaa palaa alaspäin sekä katsoo, onko pala pudonnut loppuun.
      */
     public void palanPudotus() {
         for (int i = 0; i < 5; i++) {
@@ -262,6 +292,9 @@ public class Lauta extends JPanel implements ActionListener{
         return pala;
     }
 
+    /**
+     * Tyhjentää laudalta täydet rivit, sekä lisää ne scoreen.
+     */
     public void tyhjennaTaydetRivit() {
         int taysiaRiveja = 0;
 
@@ -294,6 +327,9 @@ public class Lauta extends JPanel implements ActionListener{
 
     }
 
+    /**
+     * Käynnistää pelin, laittaa takaisin päälle.
+     */
     public void kaynnistys() {
         if (onPause) {
             return;
@@ -306,10 +342,17 @@ public class Lauta extends JPanel implements ActionListener{
         kello.start();
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean onkoKaynnissa() {
         return onKaynnissa;
     }
 
+    /**
+     * Laittaa pelin pause-tilaan.
+     */
     public void pysaytys() {
         if (!onKaynnissa) {
             return;
@@ -325,6 +368,9 @@ public class Lauta extends JPanel implements ActionListener{
         repaint();
     }
 
+    /**
+     * Pudottaa pelissä olevan palan loppuun asti.
+     */
     public void pudotaKokonaanAlas() {
         int uusY = curY;
 
@@ -341,31 +387,55 @@ public class Lauta extends JPanel implements ActionListener{
         return onPause;
     }
 
+    /**
+     * Palauttaa score-rivit.
+     *
+     * @return
+     */
     public int getDropatutRivit() {
         return this.tyhjennetytRivit;
 
     }
 
+    /**
+     *
+     * @return
+     */
     public Pentomino getPeliPalanMuoto() {
         return palaPelissa.getMuoto();
     }
 
+    /**
+     * Asettaa pelin pauselle.
+     */
     public void laitaPauselle() {
         this.onPause = true;
     }
 
+    /**
+     * Liikuttaa pelissä olevaa palaa askeleen vasemmalle.
+     */
     public void keyVasemmalle() {
         yritaLiikkua(palaPelissa, curX - 1, curY);
     }
 
+    /**
+     * Liikuttaa pelissä olevaa palaa askeleen oikealle.
+     */
     public void keyOikealle() {
         yritaLiikkua(palaPelissa, curX + 1, curY);
     }
 
+    /**
+     * Kääntää palaa ympäri.
+     */
     public void keyAlasKaanto() {
         yritaLiikkua(palaPelissa.kaannaOikea(), curX, curY);
     }
 
+    /**
+     * Kääntää palaa ympäri.
+     */
     public void keyYlosKaanto() {
         yritaLiikkua(palaPelissa.kaannaVasen(), curX, curY);
     }
