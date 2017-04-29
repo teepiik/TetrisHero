@@ -24,3 +24,5 @@ linkit:
 
 [checkstyle-raportti](Dokumentaatio/checkstyle)
 
+[Käyttöohjeet](Dokumentaatio/Kaytto-ohjeet)
+
