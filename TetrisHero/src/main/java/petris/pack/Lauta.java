@@ -41,12 +41,12 @@ public class Lauta extends JPanel implements ActionListener {
     private boolean palaPudonnutLoppuun = false;
 
     /**
-     *
+     * Nykyisen pelissä olevan palan x-koordinaatti.
      */
     public int curX = 0;
 
     /**
-     *
+     * Nykyisen pelissä olevan palan y-koordinaatti.
      */
     public int curY = 0;
 
@@ -76,7 +76,6 @@ public class Lauta extends JPanel implements ActionListener {
         tyhjennaLauta(); // konstruktori tekee tyhjän laudan.
         addKeyListener(new PetrisKeyAdapter(this));
 
-        // lisää keyadapteri
     }
 
     /**

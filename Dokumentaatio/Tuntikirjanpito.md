@@ -19,6 +19,7 @@ Päivä | Tunnit | Kuvaus
 25.04.2017 | 5h | KeyListener/Adapter, bugien viilausta, pelin testausta.
 27.04.2017 | 2h | Demotilaisuus, JavaDocin tekoa.
 29.04.2017 | 2h | Viikkopalautus 6 viimeistelyä ja muuta näpertelyä.
+03.05.2017 | 1h | Checkstylen katsomista sekä testausdokumentaation kirjoitus.
 
 
 
