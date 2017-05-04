@@ -16,33 +16,35 @@
 <a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> java.awt.Color;
 <a class="jxr_linenumber" name="L9" href="#L9">9</a>   
 <a class="jxr_linenumber" name="L10" href="#L10">10</a>  <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_javadoccomment"> *</em>
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_javadoccomment"> * @author teepiik</em>
-<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">public</strong> enum <a href="../../petris/pack/Pentomino.html">Pentomino</a> {
-<a class="jxr_linenumber" name="L15" href="#L15">15</a>      Muodoton(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}}, <strong class="jxr_keyword">new</strong> Color(0, 0, 0)),
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>      Fmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{-1, 0}, {0, 0}, {0, -1}, {0, 1}, {1, 1}}, <strong class="jxr_keyword">new</strong> Color(204, 204, 102)),
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>      Imino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{0, -2}, {0, -1}, {0, 0}, {0, 1}, {0, 2}}, <strong class="jxr_keyword">new</strong> Color(102, 204, 204)),
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>      Lmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{0, -1}, {1, -1}, {0, 1}, {0, 2}, {0, 0}}, <strong class="jxr_keyword">new</strong> Color(102, 102, 204)),
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>      Nmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{-1, -1}, {-1, 0}, {0, 0}, {0, 1}, {0, 2}}, <strong class="jxr_keyword">new</strong> Color(204, 204, 204)),
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>      Pmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{0, -1}, {0, 0}, {0, 1}, {1, 0}, {1, 1}}, <strong class="jxr_keyword">new</strong> Color(102, 102, 102)),
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>      Tmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{0, -1}, {0, 0}, {0, 1}, {-1, 1}, {1, 1}}, <strong class="jxr_keyword">new</strong> Color(204, 102, 204)),
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>      Umino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{-1, 0}, {-1, -1}, {0, -1}, {1, -1}, {1, 0}}, <strong class="jxr_keyword">new</strong> Color(102, 102, 204)),
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>      Vmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{0, 1}, {0, 0}, {0, -1}, {1, -1}, {2, -1}}, <strong class="jxr_keyword">new</strong> Color(102, 204, 102)),
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>      Wmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{-1, 1}, {-1, 0}, {0, 0}, {0, -1}, {1, -1}}, <strong class="jxr_keyword">new</strong> Color(102, 204, 204)),
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>      Xmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{-1, 0}, {0, 0}, {1, 0}, {0, 1}, {0, -1}}, <strong class="jxr_keyword">new</strong> Color(218, 170, 0)),
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>      Ymino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{-1, 0}, {0, 1}, {0, 0}, {0, -1}, {0, -2}}, <strong class="jxr_keyword">new</strong> Color(0, 170, 218)),
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>      Zmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{-1, 1}, {0, 1}, {0, 0}, {0, -1}, {1, -1}}, <strong class="jxr_keyword">new</strong> Color(0, 218, 0));
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong>[][] koordinaatit;
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>      <strong class="jxr_keyword">public</strong> Color color;
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>      <strong class="jxr_keyword">private</strong> <a href="../../petris/pack/Pentomino.html">Pentomino</a>(<strong class="jxr_keyword">int</strong>[][] coords, Color c) {
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>          <strong class="jxr_keyword">this</strong>.koordinaatit = coords;
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>          color = c;
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>      }
-<a class="jxr_linenumber" name="L36" href="#L36">36</a>  
-<a class="jxr_linenumber" name="L37" href="#L37">37</a>  }
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <em class="jxr_javadoccomment"> * Tämä Enum luokka sisältää kaikki pelin Pentominojen muodot koordinaatteina</em>
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <em class="jxr_javadoccomment"> * sekä niille asetetut värit.</em>
+<a class="jxr_linenumber" name="L13" href="#L13">13</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="L14" href="#L14">14</a>  <em class="jxr_javadoccomment"> * @author teepiik</em>
+<a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">public</strong> enum <a href="../../petris/pack/Pentomino.html">Pentomino</a> {
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>      Muodoton(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{0, 0}, {0, 0}, {0, 0}, {0, 0}, {0, 0}}, <strong class="jxr_keyword">new</strong> Color(0, 0, 0)),
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>      Fmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{-1, 0}, {0, 0}, {0, -1}, {0, 1}, {1, 1}}, <strong class="jxr_keyword">new</strong> Color(204, 204, 102)),
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>      Imino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{0, -2}, {0, -1}, {0, 0}, {0, 1}, {0, 2}}, <strong class="jxr_keyword">new</strong> Color(102, 204, 204)),
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>      Lmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{0, -1}, {1, -1}, {0, 1}, {0, 2}, {0, 0}}, <strong class="jxr_keyword">new</strong> Color(102, 102, 204)),
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>      Nmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{-1, -1}, {-1, 0}, {0, 0}, {0, 1}, {0, 2}}, <strong class="jxr_keyword">new</strong> Color(204, 204, 204)),
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>      Pmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{0, -1}, {0, 0}, {0, 1}, {1, 0}, {1, 1}}, <strong class="jxr_keyword">new</strong> Color(102, 102, 102)),
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      Tmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{0, -1}, {0, 0}, {0, 1}, {-1, 1}, {1, 1}}, <strong class="jxr_keyword">new</strong> Color(204, 102, 204)),
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      Umino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{-1, 0}, {-1, -1}, {0, -1}, {1, -1}, {1, 0}}, <strong class="jxr_keyword">new</strong> Color(102, 102, 204)),
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>      Vmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{0, 1}, {0, 0}, {0, -1}, {1, -1}, {2, -1}}, <strong class="jxr_keyword">new</strong> Color(102, 204, 102)),
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>      Wmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{-1, 1}, {-1, 0}, {0, 0}, {0, -1}, {1, -1}}, <strong class="jxr_keyword">new</strong> Color(102, 204, 204)),
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>      Xmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{-1, 0}, {0, 0}, {1, 0}, {0, 1}, {0, -1}}, <strong class="jxr_keyword">new</strong> Color(218, 170, 0)),
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>      Ymino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{-1, 0}, {0, 1}, {0, 0}, {0, -1}, {0, -2}}, <strong class="jxr_keyword">new</strong> Color(0, 170, 218)),
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>      Zmino(<strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[][]{{-1, 1}, {0, 1}, {0, 0}, {0, -1}, {1, -1}}, <strong class="jxr_keyword">new</strong> Color(0, 218, 0));
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong>[][] koordinaatit;
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>      <strong class="jxr_keyword">public</strong> Color color;
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>      <strong class="jxr_keyword">private</strong> <a href="../../petris/pack/Pentomino.html">Pentomino</a>(<strong class="jxr_keyword">int</strong>[][] coords, Color c) {
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>          <strong class="jxr_keyword">this</strong>.koordinaatit = coords;
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>          color = c;
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>      }
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>  
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2017. All rights reserved.</div>

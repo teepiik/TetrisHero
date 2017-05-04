@@ -20,24 +20,21 @@ public class PetrisKeyAdapter implements KeyListener {
     /**
      * Kuuntelija tarvitsee konstruktorin parametrina Lauta-olion.
      *
-     * @param l
+     * @param l Lauta
      */
     public PetrisKeyAdapter(Lauta l) {
         this.lauta = l;
     }
 
-    /**
-     *
-     * @param ke
-     */
     @Override
     public void keyTyped(KeyEvent ke) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
+     * KeyEventin käsittelijä, pelin ohjauksen logiikkaa.
      *
-     * @param ke
+     * @param ke KeyEvent
      */
     @Override
     public void keyPressed(KeyEvent ke) {
@@ -76,10 +73,6 @@ public class PetrisKeyAdapter implements KeyListener {
         }
     }
 
-    /**
-     *
-     * @param ke
-     */
     @Override
     public void keyReleased(KeyEvent ke) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

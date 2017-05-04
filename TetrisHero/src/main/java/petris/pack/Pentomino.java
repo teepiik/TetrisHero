@@ -8,6 +8,8 @@ package petris.pack;
 import java.awt.Color;
 
 /**
+ * Tämä Enum luokka sisältää kaikki pelin Pentominojen muodot koordinaatteina
+ * sekä niille asetetut värit.
  *
  * @author teepiik
  */

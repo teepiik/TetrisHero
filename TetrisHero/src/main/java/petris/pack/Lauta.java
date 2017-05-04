@@ -64,7 +64,7 @@ public class Lauta extends JPanel implements ActionListener {
     /**
      * Lauta-luokan konstruktori, joka myös käynnistää pelin.
      *
-     * @param parent
+     * @param parent tyyppi
      */
     public Lauta(Petris parent) {
         setFocusable(true);
@@ -90,7 +90,7 @@ public class Lauta extends JPanel implements ActionListener {
      * Käsittelee pelin saaman keyboard syötteen, sisältää myös hieman pelin
      * logiikkaa.
      *
-     * @param ae
+     * @param ae actionevent
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
@@ -107,7 +107,7 @@ public class Lauta extends JPanel implements ActionListener {
     /**
      * Palauttaa Petrispelin laudan leveyden Integerinä.
      *
-     * @return
+     * @return integer
      */
     public int laudanLeveys() {
         return (int) getSize().getWidth() / LAUTA_LEVEYS;
@@ -116,7 +116,7 @@ public class Lauta extends JPanel implements ActionListener {
     /**
      * Palauttaa Petrispelin laudan korkeuden Integerinä.
      *
-     * @return
+     * @return Integer
      */
     public int laudanKorkeus() {
         return (int) getSize().getHeight() / LAUTA_KORKEUS;
@@ -136,9 +136,9 @@ public class Lauta extends JPanel implements ActionListener {
      * Palauttaa Pentominon kohdassa (x,y), "Muodoton" tarkoitaa käytännössä
      * tyhjää.
      *
-     * @param x
-     * @param y
-     * @return
+     * @param x koordinaatti
+     * @param y koordinaatti
+     * @return Pentomino
      */
     public Pentomino palaKohdassa(int x, int y) {
         return lauta[y * LAUTA_LEVEYS + x];
@@ -193,7 +193,7 @@ public class Lauta extends JPanel implements ActionListener {
      * Palauttaa sen palan, joka tällä hetkellä on pelissä. ( = on laudan
      * attribuuttina "palaPelissa".)
      *
-     * @return
+     * @return Pala-olio
      */
     public Pala palaPelissaNyt() {
         return palaPelissa;
@@ -203,7 +203,7 @@ public class Lauta extends JPanel implements ActionListener {
      * Metodi palaPelissa attribuutissa olevan Pala-olion muodon muuttamiseksi
      * laudan kautta.
      *
-     * @param pento
+     * @param pento Pentomino
      */
     public void asetaPelissaOlevanPalanMuoto(Pentomino pento) {
         palaPelissa.setMuoto(pento);
@@ -212,10 +212,10 @@ public class Lauta extends JPanel implements ActionListener {
     /**
      * Piirtää lautaa ja Paloja laudalle.
      *
-     * @param g
-     * @param x
-     * @param y
-     * @param muoto
+     * @param g Grapics
+     * @param x koordinaatti
+     * @param y koordinaatti
+     * @param muoto Pentomino
      */
     public void piirra(Graphics g, int x, int y, Pentomino muoto) {
         Color vari = muoto.color;
@@ -229,7 +229,7 @@ public class Lauta extends JPanel implements ActionListener {
     /**
      * Piirtää laudan kokonaisuutena.
      *
-     * @param g
+     * @param g Graphics
      */
     @Override
     public void paint(Graphics g) {
@@ -282,8 +282,8 @@ public class Lauta extends JPanel implements ActionListener {
     /**
      * Tekee uuden palan, jonka muodoksi annetaan parametrina annettu muoto.
      *
-     * @param pentomino
-     * @return
+     * @param pentomino Pentomino
+     * @return Pala-olio
      */
     public Pala asetaPalaPentominolla(Pentomino pentomino) {
         Pala pala = new Pala();
@@ -342,8 +342,9 @@ public class Lauta extends JPanel implements ActionListener {
     }
 
     /**
+     * Palauttaa booleanin onko peli käynnissä
      *
-     * @return
+     * @return Boolean
      */
     public boolean onkoKaynnissa() {
         return onKaynnissa;
@@ -389,7 +390,7 @@ public class Lauta extends JPanel implements ActionListener {
     /**
      * Palauttaa score-rivit.
      *
-     * @return
+     * @return Integer
      */
     public int getDropatutRivit() {
         return this.tyhjennetytRivit;
@@ -397,8 +398,9 @@ public class Lauta extends JPanel implements ActionListener {
     }
 
     /**
+     * Palauttaa pelissä olevan palan muodon.
      *
-     * @return
+     * @return Pentomino
      */
     public Pentomino getPeliPalanMuoto() {
         return palaPelissa.getMuoto();

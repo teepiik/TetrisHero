@@ -10,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
+ * Sisältää itse graafisen toteutuksen asettelua ja luontia. Tämä luokka myös
+ * luo pelilaudan.
  *
  * @author teepiik
  */

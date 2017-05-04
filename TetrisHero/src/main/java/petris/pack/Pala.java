@@ -28,7 +28,7 @@ public class Pala {
     /**
      * Muuttaa Palan muodon parametrina annetuksi Pentominoksi.
      *
-     * @param pentomino
+     * @param pentomino Pentomino
      */
     public void setPala(Pentomino pentomino) {
         for (int i = 0; i < 5; i++) {
@@ -41,22 +41,10 @@ public class Pala {
     }
 
     // Setterit ja Getterit
-    /**
-     *
-     * @param indeksi
-     * @return
-     */
     public int getX(int indeksi) {
         return koordinaatit[indeksi][0];
     }
 
-    /**
-     * Antavat Palan parametrina annetun indeksin mukaisen osan
-     * Y/X-koordinaatin. Tai vastaavasti voi asettaa.
-     *
-     * @param indeksi
-     * @return
-     */
     public int getY(int indeksi) {
         return koordinaatit[indeksi][1];
     }
@@ -72,7 +60,7 @@ public class Pala {
     /**
      * Palauttaa palan Pentomino-muodon.
      *
-     * @return
+     * @return Pentomino
      */
     public Pentomino getMuoto() {
         return palanMuoto;
@@ -90,7 +78,7 @@ public class Pala {
     /**
      * Kääntää palaa 90 astetta vasemmalle.
      *
-     * @return
+     * @return Pala-olio
      */
     public Pala kaannaVasen() {
         if (palanMuoto == Pentomino.Xmino) {
@@ -111,7 +99,7 @@ public class Pala {
     /**
      * Kääntää palaa 90 astetta oikealle.
      *
-     * @return
+     * @return Pala-olio
      */
     public Pala kaannaOikea() {
         // Xminon muoto ulospäin ei muutu vaikka käännettäisiinkin.
@@ -143,7 +131,7 @@ public class Pala {
     /**
      * Palauttaa palan pienimmän x-koordinaatin
      *
-     * @return
+     * @return Integer
      */
     public int minX() {
         int m = koordinaatit[0][0];
@@ -158,7 +146,7 @@ public class Pala {
     /**
      * Palauttaa palan pienimmän y-koordinaatin.
      *
-     * @return
+     * @return Integer
      */
     public int minY() {
         int m = koordinaatit[0][1];
