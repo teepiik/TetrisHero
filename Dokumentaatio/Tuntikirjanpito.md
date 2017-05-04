@@ -20,6 +20,7 @@ Päivä | Tunnit | Kuvaus
 27.04.2017 | 2h | Demotilaisuus, JavaDocin tekoa.
 29.04.2017 | 2h | Viikkopalautus 6 viimeistelyä ja muuta näpertelyä.
 03.05.2017 | 1h | Checkstylen katsomista sekä testausdokumentaation kirjoitus.
+04.05.2017 | 2h | Loppupalautuksen viimeistely.
 
 
 
