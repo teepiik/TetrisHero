@@ -35,8 +35,8 @@ linkit:
 
 [checkstyle-raportti](Dokumentaatio/checkstyle)
 
-[Käyttöohjeet](Dokumentaatio/Kayttoohjeet)
+[Käyttöohjeet](Dokumentaatio/Kayttoohjeet.md)
 
-[Testauksen dokumentaatio](Dokumentaatio/Testausdokumentaatio)
+[Testauksen dokumentaatio](Dokumentaatio/Testausdokumentaatio.md)
 
 
